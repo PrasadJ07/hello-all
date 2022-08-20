@@ -1,0 +1,43 @@
+public class MyThread extends Thread
+{
+  String task;
+ 
+MyThread(String task)
+{
+  this.task = task;
+}
+public void run()
+{
+ for(int i = 1; i <= 5; i++)
+ {
+  System.out.println(task+ " : " +i); 	
+  try
+ {
+    Thread.sleep(1000);
+ }
+ catch(InterruptedException ie) {
+   System.out.println(ie.getMessage());	
+  }
+ } 
+} 
+public static void main(String[] args) 
+{
+
+  MyThread th1 = new MyThread("Hello All"); 
+  MyThread th2 = new MyThread("Hello All");
+  MyThread th3 = new MyThread("Hello All");
+  MyThread th4 = new MyThread("Hello All");
+  MyThread th5 = new MyThread("Hello All");
+.
+  Thread t1 = new Thread(th1);
+  Thread t2 = new Thread(th2);
+  Thread t3 = new Thread(th3);
+  Thread t4 = new Thread(th4);
+  Thread t5 = new Thread(th5);
+  t1.start();
+  t2.start();
+  t3.start();
+  t4.start();
+  t5.start();
+  }
+}
